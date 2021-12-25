@@ -38,7 +38,7 @@ ground.remove = function(x, y) {
 
     this.viewContent.removeChild(curSquare.viewContent);
     this.squareTable[x][y] = null;
-    console.log(this.squareTable)
+    // console.log(this.squareTable)
 };
 ground.append = function(square) {
     this.viewContent.appendChild(square.viewContent);

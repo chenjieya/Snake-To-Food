@@ -32,6 +32,18 @@ function Square(x, y, width, height, dom) {
     this.viewContent = dom || document.createElement('div');
 }
 
+/**
+ * 蛇头是单例创建的，此函数更新蛇头移动时候的位置
+ * @param {Number} x 行
+ * @param {Number} y 列
+ */
+Square.prototype.upDate = function(x, y) {
+    this.x = x;
+    this.y = y;
+    this.viewContent.style.left = y * squareWidth + 'px';
+    this.viewContent.style.top = x * squareWidth + 'px';
+}
+
 const Ground = tool.single(Square); // 游戏视图
 const Floor = tool.extends(Square); // 地板
 const Wall = tool.extends(Square); // 围墙
@@ -39,3 +51,10 @@ const SnakeHeade = tool.single(Square); // 蛇头
 const SnakeBody = tool.extends(Square); // 蛇身
 const Food = tool.single(Square); // 食物
 const Snake = tool.single(); // 蛇
+
+// 蛇的状态
+const snakeState = {
+    eat: 'eat',
+    die: 'die',
+    move: 'move',
+}

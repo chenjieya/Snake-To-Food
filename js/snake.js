@@ -58,6 +58,7 @@ snake.init = function() {
     获取蛇头要走的下一个方块是什么
 */
 snake.getNextSquare = function () {
+    // console.log(this,' 666');
     let nextSquare = ground.squareTable[this.head.x + this.direction.x][this.head.y + this.direction.y];
     // console.log(nextSquare);
 
@@ -71,7 +72,7 @@ snake.collideMethod = {
         // 更新链表
         newSnakeBody.next = snake.head.next;
         newSnakeBody.last = null;
-        snake.head.next = newSnakeBody;
+        newSnakeBody.next.last = newSnakeBody;
 
         ground.remove(snake.head.x, snake.head.y);
         ground.append(newSnakeBody);
@@ -99,9 +100,13 @@ snake.collideMethod = {
     eat(square) {
         // 吃和移动的区别就在于，是否删除尾巴
         this.move(square, true);
+        createFood();
+        game.score++;
     },
-    die() {},
+    die() {
+        game.over();
+    },
 }
 
-snake.init();
-snake.getNextSquare();
+// snake.init();
+// snake.getNextSquare();

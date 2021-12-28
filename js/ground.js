@@ -32,7 +32,7 @@ ground.init = function () {
     }
 }
 
-ground.init();
+// ground.init();
 ground.remove = function(x, y) {
     const curSquare = this.squareTable[x][y];
 

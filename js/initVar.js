@@ -51,6 +51,7 @@ const SnakeHeade = tool.single(Square); // 蛇头
 const SnakeBody = tool.extends(Square); // 蛇身
 const Food = tool.single(Square); // 食物
 const Snake = tool.single(); // 蛇
+const Game = tool.single(); // 控制游戏
 
 // 蛇的状态
 const snakeState = {
